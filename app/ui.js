@@ -24,6 +24,21 @@ var UI;
 (function () {
     "use strict";
 
+    // Fallback for all uncought errors
+    window.onerror = function(msg, url, line) {
+        try {
+            document.getElementById('fallback_error')
+                .classList.add("noVNC_open");
+            document.getElementById('fallback_errormsg').innerHTML =
+                url + ' (' + line + ') <br><br>' + msg;
+        } catch (exc) {
+            document.write("noVNC encountered an error.");
+        }
+        // Don't return true since this would prevent the error
+        // from being printed to the browser's console.
+        return false;
+    };
+
     /* [begin skip-as-module] */
     // Load supporting scripts
     WebUtil.load_scripts(

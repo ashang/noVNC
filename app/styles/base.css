@@ -23,6 +23,43 @@ html {
   height:100%;
 }
 
+#fallback_error {
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  transform: translate(-50%, -50px);
+
+  transition: 0.5s ease-in-out;
+
+  visibility: hidden;
+  opacity: 0;
+
+  top: 60px;
+  padding: 15px;
+  width: auto;
+
+  text-align: center;
+  font-weight: bold;
+  word-wrap: break-word;
+  color: #fff;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+
+  background: rgba(200,55,55,0.8);
+}
+#fallback_error.noVNC_open {
+  transform: translate(-50%, 0);
+  visibility: visible;
+  opacity: 1;
+}
+#fallback_errormsg {
+  font-weight: normal;
+}
+
 .noVNC_only_touch.noVNC_hidden {
   display: none;
 }
